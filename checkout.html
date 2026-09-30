@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Checkout — Borka Mart</title>
+  <meta name="description" content="Secure checkout at Borka Mart. Cash on delivery, bKash, Nagad and card payments.">
+  <meta name="theme-color" content="#123a33">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Borka Mart — Modest Luxury">
+  <meta property="og:description" content="Premium borkas &amp; abayas designed in Dhaka. The Eid Collection 2026 is live.">
+  <meta property="og:image" content="assets/img/site/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/site/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/site/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="checkout">
+  <div class="loader" id="loader"><svg class="loader__mark" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#123a33"/><path d="M12.5 31V18.5a7.5 7.5 0 0 1 15 0V31" fill="none" stroke="#d4b06a" stroke-width="1.5"/><path d="M21.8 13.6a4.3 4.3 0 1 0 0 8.2 5.2 5.2 0 1 1 0-8.2Z" fill="#d4b06a"/></svg></div>
+  <div id="site-header"></div>
+
+  <main id="checkout-main">
+    <section class="page-head" style="padding-bottom:18px">
+      <div class="container">
+        <h1>Secure <em>Checkout</em></h1>
+        <div class="steps"><span>Bag</span><i></i><b>Details</b><i></i><span>Confirmation</span></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <form class="checkout" id="checkout-form" novalidate>
+        <div class="checkout__main">
+          <div class="panel">
+            <h3><span class="num">1</span>Contact</h3>
+            <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" placeholder="e.g. Ayesha Rahman" required><span class="err">Please enter your name.</span></div>
+            <div class="field-row stack-sm">
+              <div class="field"><label for="f-phone">Mobile</label><div class="phone-input"><span>+88</span><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="01XXXXXXXXX" maxlength="11" required></div><span class="err">Enter a valid 11-digit number.</span></div>
+              <div class="field"><label for="f-email">Email <span class="muted" style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com"><span class="err">Enter a valid email.</span></div>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-top:16px">
+            <h3><span class="num">2</span>Delivery Address</h3>
+            <div class="field-row">
+              <div class="field"><label for="f-district">District</label><select id="f-district" name="district" required></select><span class="err">Choose your district.</span></div>
+              <div class="field"><label for="f-area">Area / Thana</label><input id="f-area" name="area" placeholder="e.g. Dhanmondi" required><span class="err">Enter your area.</span></div>
+            </div>
+            <div class="field"><label for="f-address">Full address</label><input id="f-address" name="address" autocomplete="street-address" placeholder="House, road, block, landmark" required><span class="err">Please enter your address.</span></div>
+            <div class="field"><label for="f-note">Order note <span class="muted" style="text-transform:none;letter-spacing:0">(optional)</span></label><textarea id="f-note" name="note" placeholder="Gift message or delivery instructions"></textarea></div>
+          </div>
+
+          <div class="panel" style="margin-top:16px">
+            <h3><span class="num">3</span>Delivery Method</h3>
+            <div id="ship-options"></div>
+          </div>
+
+          <div class="panel" style="margin-top:16px">
+            <h3><span class="num">4</span>Payment</h3>
+            <label class="radio-card"><input type="radio" name="pay" value="cod" checked><span class="ring"></span><span class="rc-body"><b>Cash on Delivery</b><small>Pay when your order arrives</small></span><span class="pay-logo cod">COD</span></label>
+            <label class="radio-card"><input type="radio" name="pay" value="bkash"><span class="ring"></span><span class="rc-body"><b>bKash</b><small>Instant mobile payment</small></span><span class="pay-logo bkash">bKash</span></label>
+            <div class="pay-extra" data-for="bkash">You'll be taken to the secure bKash payment page to authorise with your PIN.</div>
+            <label class="radio-card"><input type="radio" name="pay" value="nagad"><span class="ring"></span><span class="rc-body"><b>Nagad</b><small>Instant mobile payment</small></span><span class="pay-logo nagad">Nagad</span></label>
+            <div class="pay-extra" data-for="nagad">You'll be taken to the secure Nagad payment page to authorise with your PIN.</div>
+            <label class="radio-card"><input type="radio" name="pay" value="card"><span class="ring"></span><span class="rc-body"><b>Credit / Debit Card</b><small>Visa, Mastercard, Amex</small></span><span class="pay-logo card">VISA</span></label>
+            <div class="pay-extra" data-for="card">
+              <div class="field"><label for="c-num">Card number</label><input id="c-num" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number"></div>
+              <div class="field-row">
+                <div class="field" style="margin:0"><label for="c-exp">Expiry</label><input id="c-exp" inputmode="numeric" placeholder="MM / YY" maxlength="7" autocomplete="cc-exp"></div>
+                <div class="field" style="margin:0"><label for="c-cvc">CVC</label><input id="c-cvc" inputmode="numeric" placeholder="123" maxlength="4" autocomplete="cc-csc"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="panel">
+            <h3>Order Summary</h3>
+            <div id="sum-items"></div>
+            <div class="divider"></div>
+            <div id="coupon-box"></div>
+            <div id="sum-totals"></div>
+            <button class="btn btn--block" type="submit" id="place-order">Place Order</button>
+            <p class="secure"><svg class="icon icon-xs" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>Your details are protected with 256-bit SSL encryption</p>
+          </div>
+        </aside>
+      </form>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/checkout.js"></script>
+</body>
+</html>
